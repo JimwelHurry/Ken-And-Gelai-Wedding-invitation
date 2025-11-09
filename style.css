@@ -1,0 +1,104 @@
+/* Gold/Earthy Color Palette */
+    :root {
+        --oliven-gold: #A37E61; 
+        --oliven-cream: #f4f2ef;
+        --oliven-dark: #333;
+    }
+
+    /* KEN BURNS ZOOM ANIMATION */
+    @keyframes kenburns {
+        0% {
+            transform: scale(1.0); /* Magsisimula sa normal size */
+        }
+        100% {
+            transform: scale(1.15); /* Dahan-dahang magzo-zoom in hanggang 15% */
+        }
+    }
+
+    #landingScreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        
+        background-image: url('images/12.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+        z-index: 99999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        
+        /* Darker Overlay */
+        background-color: rgba(0, 0, 0, 0.6); 
+        
+        /* Smooth transition for fade out */
+        transition: opacity 1s ease-in-out; 
+        
+        /* I-apply ang Zoom Animation */
+        animation: kenburns 30s infinite alternate; /* 30 seconds, tuloy-tuloy, pabalik-balik */
+    }
+    
+    /* GAGANDA ANG PAGKAWALA NITO (Fade Out) */
+    #landingScreen.hidden {
+        opacity: 0;
+        visibility: hidden;
+        /* Para gumana ang fade, dapat 1s din ang transition */
+    }
+
+    /* Iba pang design elements */
+    #landingScreen h1 {
+        color: #fff;
+        font-family: 'Times New Roman', serif;
+        font-size: 5em; 
+        margin-bottom: 5px;
+        letter-spacing: 5px;
+        text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
+    }
+    
+    #landingScreen h5 {
+        color: var(--oliven-gold); 
+        font-size: 1.5em;
+        margin-bottom: 30px;
+        font-weight: 400;
+        letter-spacing: 3px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    
+    /* Elegant Gold Button Style */
+    #enterButton {
+        padding: 15px 40px;
+        font-size: 1.1em;
+        font-weight: 500;
+        letter-spacing: 2px;
+        color: #fff;
+        background-color: var(--oliven-gold); 
+        border: 2px solid var(--oliven-gold);
+        cursor: pointer;
+        border-radius: 3px;
+        text-transform: uppercase;
+        transition: all 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    #enterButton:hover {
+        background-color: transparent;
+        border-color: #fff;
+        color: #fff;
+    }
+    
+    /* Itago ang default preloader at main content */
+    .preloader {
+        display: none !important; 
+    }
+    #mainContent {
+        display: none;
+        /* Optional: Pwede ring lagyan ng fade-in ang mainContent para mas dramatic */
+        opacity: 0;
+        transition: opacity 1s ease-in-out 1s; /* Mag-uumpisa mag-fade in 1s pagkatapos ng click */
+    }
